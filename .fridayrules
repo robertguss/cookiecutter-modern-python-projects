@@ -1,0 +1,23 @@
+# .fridayrules
+# Purpose: Fast on-ramp for contributors.
+# Sections: ARCH, TEST, LINT. (<50 lines total)
+
+ARCH
+- Template generates one of six project flavours: full | api | cli | data_science | automation | minimal.
+- Source layout: either src/<<slug>> or flat, governed by `use_src_layout`.
+- Core tooling: pyproject.toml (PEP 621), uv (lock + run), justfile (task runner).
+
+TEST
+- Framework: pytest (+pytest-cov).
+- All tests live in tests/**.
+- Run quick suite:            `just test`
+- Run with HTML coverage:      `just test-cov`
+- Coverage gate (%): defined by `tool.pytest.ini_options.cov-fail-under` in pyproject.toml.
+
+LINT
+- Ruff handles style, imports, bugbear, etc.
+- Auto-fix + format whole tree: `just lint` & `just format`.
+- CI parity check (no writes):  `just check`.
+- Optional extras wired via pre-commit: mypy (typing) & deptry (deps).
+
+# end
