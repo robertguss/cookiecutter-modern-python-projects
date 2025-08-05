@@ -36,13 +36,12 @@ pip install cookiecutter
 cookiecutter https://github.com/yourusername/cookiecutter-modern-python-projects
 ```
 
-### Simple Configuration
-You'll be prompted for just the essentials:
-- **Project name** and description  
-- **Author** information
+### Ultra-Simple Configuration
+You'll be prompted for just **2 things**:
+- **Project name**
 - **Project type** (full, api, cli, data_science, scripts, minimal)
 
-That's it! No complex configuration choices - sensible defaults are built-in.
+That's it! Everything else uses sensible defaults - no decision fatigue.
 
 ## 📖 Documentation
 
