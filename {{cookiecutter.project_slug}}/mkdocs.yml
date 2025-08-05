@@ -1,0 +1,69 @@
+{% if cookiecutter.include_mkdocs == 'y' -%}
+site_name: {{ cookiecutter.project_name }}
+site_description: {{ cookiecutter.project_description }}
+site_author: {{ cookiecutter.author_name }}
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_root_toc_entry: false
+
+nav:
+  - Home: index.md
+  {% if cookiecutter.include_fastapi == 'y' -%}
+  - API: api.md
+  {% endif -%}
+  {% if cookiecutter.include_typer == 'y' -%}
+  - CLI: cli.md
+  {% endif -%}
+  {% if cookiecutter.include_data_science == 'y' -%}
+  - Data Science: data.md
+  {% endif -%}
+  - Development: development.md
+  - API Reference: reference.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+{% endif %}

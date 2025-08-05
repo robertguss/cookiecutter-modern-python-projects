@@ -1,0 +1,28 @@
+{
+    "project_name": "My Awesome Project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_description": "A modern Python project",
+    "author_name": "Your Name",
+    "author_email": "you@example.com",
+    "license": ["MIT", "Apache-2.0", "BSD-3-Clause", "GPL-3.0", "None"],
+    "python_version": ["3.12", "3.13", "3.11"],
+    "project_type": [
+        "full",
+        "api", 
+        "cli",
+        "data_science",
+        "automation",
+        "minimal"
+    ],
+    "include_fastapi": "{% if cookiecutter.project_type in ['full', 'api'] %}y{% else %}n{% endif %}",
+    "include_typer": "{% if cookiecutter.project_type in ['full', 'cli', 'automation'] %}y{% else %}n{% endif %}",
+    "include_data_science": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
+    "include_jupyter": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
+    "include_vscode_settings": ["y", "n"],
+    "include_pre_commit": ["y", "n"],
+    "include_mkdocs": ["y", "n"],
+    "test_coverage_threshold": ["80", "85", "90", "95"],
+    "use_src_layout": ["y", "n"],
+    "include_docker": ["n", "y"],
+    "include_github_actions": ["n", "y"]
+}
