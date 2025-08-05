@@ -32,7 +32,7 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 ### 🎯 Smart Configuration
 
 - **Conditional dependencies** based on project type
-- **Optional features** (Docker, GitHub Actions, Jupyter)
+- **Optional features** (Jupyter)
 - **Flexible project structure** (src layout or flat)
 - **Multiple license options**
 
@@ -67,7 +67,7 @@ The template will prompt you for:
 - **License** (MIT, Apache-2.0, BSD-3-Clause, GPL-3.0, None)
 - **Python version** (3.11, 3.12, 3.13)
 - **Project type** (full, api, cli, data_science, automation, minimal)
-- **Optional features** (pre-commit, MkDocs, Docker, GitHub Actions, etc.)
+- **Optional features** (pre-commit, MkDocs, etc.)
 - **Test coverage threshold** (80%, 85%, 90%, 95%)
 
 ## 🏗️ Generated Project Structure

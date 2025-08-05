@@ -21,7 +21,5 @@
   "include_pre_commit": ["y", "n"],
   "include_mkdocs": ["y", "n"],
   "test_coverage_threshold": ["80", "85", "90", "95"],
-  "use_src_layout": ["y", "n"],
-  "include_docker": ["n", "y"],
-  "include_github_actions": ["n", "y"]
+  "use_src_layout": ["y", "n"]
 }

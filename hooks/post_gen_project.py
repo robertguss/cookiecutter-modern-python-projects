@@ -43,14 +43,6 @@ def main():
         remove_file("mkdocs.yml")
         remove_file("docs")
     
-    if "{{ cookiecutter.include_docker }}" != "y":
-        remove_file("Dockerfile")
-        remove_file("docker-compose.yml")
-        remove_file(".dockerignore")
-    
-    if "{{ cookiecutter.include_github_actions }}" != "y":
-        remove_file(".github")
-    
     # Remove conditional source directories
     src_base = "{% if cookiecutter.use_src_layout == 'y' %}src/{% endif %}{{ cookiecutter.project_slug }}"
     
