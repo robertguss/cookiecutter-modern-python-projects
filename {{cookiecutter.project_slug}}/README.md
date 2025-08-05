@@ -17,7 +17,7 @@
 
 - 🧪 **Testing** - Pytest with 80%+ coverage requirement
 - 🔧 **Code Quality** - Ruff for linting and formatting
-- 📦 **Dependency Management** - UV for fast package management
+- 📦 **Dependency Management** - UV for fast package management (always installs latest versions, with reproducible builds via uv.lock)
 - 🏗️ **Task Runner** - Just for common development tasks
 - 🪝 **Pre-commit Hooks** - Automated code quality checks
 - 📚 **Documentation** - MkDocs with Material theme
@@ -44,8 +44,11 @@ just dev-setup
 This will:
 
 - Create a virtual environment
-- Install all dependencies
+- Install all dependencies (latest versions)
+- Generate a `uv.lock` file for reproducible builds
 - Set up pre-commit hooks
+
+> **Note**: This project is configured to always install the latest versions of all dependencies. The `uv.lock` file ensures reproducible builds across environments while still allowing you to stay current with the latest package releases.
 
 ## Development
 
