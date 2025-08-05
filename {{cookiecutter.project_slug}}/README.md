@@ -32,7 +32,7 @@
 
 ### Prerequisites
 
-- Python {{ cookiecutter.python_version }}+
+- Python 3.13+
 - [uv](https://docs.astral.sh/uv/) package manager
 - [just](https://github.com/casey/just) task runner
 

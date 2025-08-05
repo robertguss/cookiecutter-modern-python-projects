@@ -5,7 +5,6 @@
   "author_name": "Robert Guss",
   "author_email": "robertguss@gmail.com",
   "license": ["None", "MIT"],
-  "python_version": ["3.13", "3.12", "3.11"],
   "project_type": [
     "full",
     "api",

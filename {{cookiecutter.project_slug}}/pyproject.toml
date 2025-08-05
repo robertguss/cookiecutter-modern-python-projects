@@ -8,7 +8,7 @@ authors = [
 {% if cookiecutter.license != "None" -%}
 license = {text = "{{ cookiecutter.license }}"}
 {% endif -%}
-requires-python = ">={{ cookiecutter.python_version }}"
+requires-python = ">=3.13"
 readme = "README.md"
 keywords = []
 classifiers = [
@@ -24,7 +24,7 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     {% endif -%}
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: {{ cookiecutter.python_version }}",
+    "Programming Language :: Python :: 3.13",
 ]
 
 dependencies = [
@@ -127,7 +127,7 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
+target-version = "py313"
 line-length = 100
 {% if cookiecutter.use_src_layout == 'y' -%}
 src = ["src", "tests"]
@@ -174,7 +174,7 @@ ignore_transitive = []
 ignore_notebooks = true
 
 [tool.mypy]
-python_version = "{{ cookiecutter.python_version }}"
+python_version = "3.13"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
