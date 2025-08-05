@@ -24,7 +24,6 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 - **[MkDocs](https://www.mkdocs.org/)** with Material theme
 - **Test coverage** requirements (configurable 80-95%)
 - **Type hints** with mypy support
-- **VS Code** pre-configured settings
 - **EditorConfig** for consistent coding styles
 
 ### 🎯 Smart Configuration
@@ -63,7 +62,7 @@ The template will prompt you for:
 - **License** (MIT, Apache-2.0, BSD-3-Clause, GPL-3.0, None)
 - **Python version** (3.11, 3.12, 3.13)
 - **Project type** (full, api, cli, data_science, automation, minimal)
-- **Optional features** (VS Code settings, pre-commit, MkDocs, etc.)
+- **Optional features** (pre-commit, MkDocs, Docker, GitHub Actions, etc.)
 - **Test coverage threshold** (80%, 85%, 90%, 95%)
 
 ## 🏗️ Generated Project Structure
@@ -80,7 +79,6 @@ your_project/
 │   ├── conftest.py
 │   └── test_*.py
 ├── docs/                       # Documentation (if enabled)
-├── .vscode/                    # VS Code settings (if enabled)
 ├── pyproject.toml              # Project configuration
 ├── justfile                    # Task definitions
 ├── .pre-commit-config.yaml     # Pre-commit hooks (if enabled)
@@ -177,17 +175,6 @@ just docs-serve
 - `deptry` - Dependency analysis
 - `mkdocs`, `mkdocs-material` - Documentation (if enabled)
 - `pre-commit` - Git hooks (if enabled)
-
-## 🎨 VS Code Integration
-
-When VS Code settings are enabled, you get:
-
-- **Python interpreter** automatically configured
-- **Ruff** integration for linting and formatting
-- **Pytest** test discovery and running
-- **Debugging configurations** for API and CLI
-- **Recommended extensions** list
-- **Task definitions** for common operations
 
 ## 🔧 Customization
 
