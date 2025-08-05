@@ -1,5 +1,3 @@
-{% if cookiecutter.include_mkdocs == 'y' -%}
-
 # {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_description }}
@@ -19,10 +17,8 @@ This project provides a modern Python development environment with:
 - **Data Science Tools** including Pandas, NumPy, and Matplotlib
   {% endif -%}
 - **Modern Development Tools** with Ruff, Pytest, and UV
-- **Quality Assurance** with {{ cookiecutter.test_coverage_threshold }}%+ test coverage
-  {% if cookiecutter.include_pre_commit == 'y' -%}
+- **Quality Assurance** with 80%+ test coverage
 - **Pre-commit Hooks** for automated code quality checks
-  {% endif %}
 
 ## Quick Start
 
@@ -49,7 +45,7 @@ just serve
 
 ```
 {{ cookiecutter.project_slug }}/
-├── {% if cookiecutter.use_src_layout == 'y' %}src/{{ cookiecutter.project_slug }}/{% else %}{{ cookiecutter.project_slug }}/{% endif %}
+├── src/{{ cookiecutter.project_slug }}/
 {% if cookiecutter.include_typer == 'y' -%}
 │   ├── cli/           # Command-line interface
 {% endif -%}
@@ -95,5 +91,4 @@ For command-line usage, see the [CLI Documentation](cli.md).
 ## Data Science
 
 For data processing and analysis tools, see the [Data Science Documentation](data.md).
-{% endif %}
 {% endif %}

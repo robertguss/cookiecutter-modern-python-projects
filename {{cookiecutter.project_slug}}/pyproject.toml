@@ -60,14 +60,10 @@ dev = [
     "pytest-cov>=5.0",
     "ruff>=0.4",
     "deptry>=0.12",
-    {% if cookiecutter.include_mkdocs == 'y' -%}
     "mkdocs>=1.5",
     "mkdocs-material>=9.5",
     "mkdocstrings[python]>=0.24",
-    {% endif -%}
-    {% if cookiecutter.include_pre_commit == 'y' -%}
     "pre-commit>=3.6",
-    {% endif -%}
 ]
 
 {% if cookiecutter.include_typer == 'y' -%}
@@ -80,26 +76,16 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-{% if cookiecutter.use_src_layout == 'y' -%}
 where = ["src"]
-{% endif %}
 
 [tool.pytest.ini_options]
-addopts = "-v --cov={{ cookiecutter.project_slug }} --cov-report=term-missing --cov-fail-under={{ cookiecutter.test_coverage_threshold }}"
-{% if cookiecutter.use_src_layout == 'y' -%}
+addopts = "-v --cov={{ cookiecutter.project_slug }} --cov-report=term-missing --cov-fail-under=80"
 testpaths = ["tests"]
 pythonpath = ["src"]
-{% else -%}
-testpaths = ["tests"]
-{% endif %}
 
 [tool.coverage.run]
 branch = true
-{% if cookiecutter.use_src_layout == 'y' -%}
 source = ["src"]
-{% else -%}
-source = ["{{ cookiecutter.project_slug }}"]
-{% endif %}
 
 [tool.coverage.report]
 exclude_lines = [
@@ -118,9 +104,7 @@ exclude_lines = [
 [tool.ruff]
 target-version = "py313"
 line-length = 100
-{% if cookiecutter.use_src_layout == 'y' -%}
 src = ["src", "tests"]
-{% endif %}
 
 [tool.ruff.lint]
 select = [
@@ -149,9 +133,7 @@ docstring-code-format = true
 "tests/**/*" = ["ARG", "S101"]
 
 [tool.deptry]
-{% if cookiecutter.use_src_layout == 'y' -%}
 root = "src"
-{% endif %}
 exclude = [
     ".venv",
     "tests",
@@ -176,7 +158,5 @@ warn_unused_ignores = true
 warn_no_return = true
 warn_unreachable = true
 strict_equality = true
-{% if cookiecutter.use_src_layout == 'y' -%}
 mypy_path = "src"
 packages = ["{{ cookiecutter.project_slug }}"]
-{% endif %}

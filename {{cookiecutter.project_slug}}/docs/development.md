@@ -1,11 +1,10 @@
-{% if cookiecutter.include_mkdocs == 'y' -%}
 # Development Guide
 
 This guide covers the development workflow for {{ cookiecutter.project_name }}.
 
 ## Prerequisites
 
-- Python {{ cookiecutter.python_version }}+
+- Python 3.13+
 - [uv](https://docs.astral.sh/uv/) package manager
 - [just](https://github.com/casey/just) task runner
 
@@ -23,11 +22,9 @@ just dev-setup
 ```
 
 This command will:
-- Create a virtual environment with Python {{ cookiecutter.python_version }}
+- Create a virtual environment with Python 3.13
 - Install all dependencies including dev dependencies
-{% if cookiecutter.include_pre_commit == 'y' -%}
 - Set up pre-commit hooks
-{% endif %}
 
 ### Manual Setup
 
@@ -35,15 +32,13 @@ If you prefer to set up manually:
 
 ```bash
 # Create virtual environment
-uv venv .venv --python={{ cookiecutter.python_version }}
+uv venv .venv --python=3.13
 
 # Install dependencies
 uv pip install -e ".[dev{% if cookiecutter.include_fastapi == 'y' %},api{% endif %}{% if cookiecutter.include_typer == 'y' %},cli{% endif %}{% if cookiecutter.include_data_science == 'y' %},ds{% endif %}{% if cookiecutter.include_jupyter == 'y' %},jupyter{% endif %}]"
 
-{% if cookiecutter.include_pre_commit == 'y' -%}
 # Set up pre-commit hooks
 uv run pre-commit install
-{% endif %}
 ```
 
 ## Development Workflow
@@ -68,11 +63,9 @@ just test-cov      # Run tests with coverage report
 just serve         # Start FastAPI development server
 {% endif %}
 
-{% if cookiecutter.include_mkdocs == 'y' -%}
 # Documentation
 just docs-serve    # Serve documentation locally
 just docs-build    # Build documentation
-{% endif %}
 
 # Cleanup
 just clean         # Remove generated files and caches
@@ -91,14 +84,13 @@ Configuration is in `pyproject.toml` under `[tool.ruff]`.
 
 #### Pytest
 - **Unit tests**: All code should have corresponding tests
-- **Coverage**: Minimum {{ cookiecutter.test_coverage_threshold }}% test coverage required
+- **Coverage**: Minimum 80% test coverage required
 - **Fixtures**: Use pytest fixtures for test setup
 
 #### Deptry
 - **Dependency analysis**: Checks for unused and missing dependencies
 - **Clean dependencies**: Keeps `pyproject.toml` dependencies clean
 
-{% if cookiecutter.include_pre_commit == 'y' -%}
 #### Pre-commit Hooks
 Automatically run before each commit:
 - Ruff linting and formatting
@@ -110,7 +102,6 @@ To run manually:
 ```bash
 just pre-commit-run
 ```
-{% endif %}
 
 ## Testing
 
@@ -151,7 +142,7 @@ def test_my_function_returns_expected_value():
 
 ```
 {{ cookiecutter.project_slug }}/
-├── {% if cookiecutter.use_src_layout == 'y' %}src/{{ cookiecutter.project_slug }}/{% else %}{{ cookiecutter.project_slug }}/{% endif %}    # Main package
+├── src/{{ cookiecutter.project_slug }}/    # Main package
 │   ├── __init__.py             # Package initialization
 {% if cookiecutter.include_typer == 'y' -%}
 │   ├── cli/                    # Command-line interface
@@ -173,16 +164,12 @@ def test_my_function_returns_expected_value():
 │   ├── __init__.py
 │   ├── conftest.py             # Pytest configuration and fixtures
 │   └── test_*.py               # Test modules
-{% if cookiecutter.include_mkdocs == 'y' -%}
 ├── docs/                       # Documentation
 │   ├── index.md
 │   └── *.md
-{% endif -%}
 ├── pyproject.toml              # Project configuration
 ├── justfile                    # Task definitions
-{% if cookiecutter.include_pre_commit == 'y' -%}
 ├── .pre-commit-config.yaml     # Pre-commit hooks
-{% endif -%}
 ├── .gitignore                  # Git ignore rules
 └── README.md                   # Project overview
 ```
@@ -223,9 +210,7 @@ Add to appropriate optional dependency groups in `pyproject.toml`:
 7. **Push to the branch**: `git push origin feature/amazing-feature`
 8. **Open a Pull Request**
 
-{% if cookiecutter.include_pre_commit == 'y' -%}
 Pre-commit hooks will automatically run quality checks before each commit.
-{% endif %}
 
 ## Troubleshooting
 
@@ -249,4 +234,3 @@ Pre-commit hooks will automatically run quality checks before each commit.
 - Install just: Follow the [installation guide](https://github.com/casey/just#installation)
 - On macOS: `brew install just`
 - On Ubuntu: `sudo snap install --edge --classic just`
-{% endif %}

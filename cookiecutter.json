@@ -17,8 +17,5 @@
   "include_typer": "{% if cookiecutter.project_type in ['full', 'cli', 'automation'] %}y{% else %}n{% endif %}",
   "include_data_science": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
   "include_jupyter": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
-  "include_pre_commit": ["y", "n"],
-  "include_mkdocs": ["y", "n"],
-  "test_coverage_threshold": ["80", "85", "90", "95"],
-  "use_src_layout": ["y", "n"]
+
 }

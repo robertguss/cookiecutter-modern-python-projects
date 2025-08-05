@@ -17,16 +17,12 @@
   {% if cookiecutter.include_jupyter == 'y' -%}
 - 📓 **Jupyter** - Interactive notebooks for data exploration
   {% endif -%}
-- 🧪 **Testing** - Pytest with {{ cookiecutter.test_coverage_threshold }}%+ coverage requirement
+- 🧪 **Testing** - Pytest with 80%+ coverage requirement
 - 🔧 **Code Quality** - Ruff for linting and formatting
 - 📦 **Dependency Management** - UV for fast package management
 - 🏗️ **Task Runner** - Just for common development tasks
-  {% if cookiecutter.include_pre_commit == 'y' -%}
 - 🪝 **Pre-commit Hooks** - Automated code quality checks
-  {% endif -%}
-  {% if cookiecutter.include_mkdocs == 'y' -%}
 - 📚 **Documentation** - MkDocs with Material theme
-  {% endif %}
 
 ## Quick Start
 
@@ -51,9 +47,7 @@ This will:
 
 - Create a virtual environment
 - Install all dependencies
-  {% if cookiecutter.include_pre_commit == 'y' -%}
 - Set up pre-commit hooks
-  {% endif %}
 
 ## Development
 
@@ -81,10 +75,8 @@ just check
 just serve
 {% endif -%}
 
-{% if cookiecutter.include_mkdocs == 'y' -%}
 # Serve documentation
 just docs-serve
-{% endif %}
 
 # Clean up generated files
 just clean
@@ -94,7 +86,7 @@ just clean
 
 ```
 {{ cookiecutter.project_slug }}/
-├── {% if cookiecutter.use_src_layout == 'y' %}src/{{ cookiecutter.project_slug }}/{% else %}{{ cookiecutter.project_slug }}/{% endif %}    # Main package
+├── src/{{ cookiecutter.project_slug }}/    # Main package
 {% if cookiecutter.include_typer == 'y' -%}
 │   ├── cli/                    # Command-line interface
 {% endif -%}
@@ -108,14 +100,10 @@ just clean
 │   └── data/                   # Data processing utilities
 {% endif -%}
 ├── tests/                      # Test files
-{% if cookiecutter.include_mkdocs == 'y' -%}
 ├── docs/                       # Documentation
-{% endif -%}
 ├── pyproject.toml              # Project configuration
 ├── justfile                    # Task definitions
-{% if cookiecutter.include_pre_commit == 'y' -%}
 ├── .pre-commit-config.yaml     # Pre-commit hooks
-{% endif -%}
 └── README.md                   # This file
 ```
 
@@ -173,8 +161,6 @@ just test-cov
 uv run pytest tests/test_specific.py
 ```
 
-{% if cookiecutter.include_mkdocs == 'y' -%}
-
 ## Documentation
 
 Documentation is built with MkDocs and the Material theme.
@@ -187,8 +173,6 @@ just docs-serve
 just docs-build
 ```
 
-{% endif %}
-
 ## Contributing
 
 1. Fork the repository
@@ -197,6 +181,4 @@ just docs-build
 4. Run tests and ensure they pass
 5. Submit a pull request
 
-{% if cookiecutter.include_pre_commit == 'y' -%}
 Pre-commit hooks will automatically run code quality checks.
-{% endif %}
