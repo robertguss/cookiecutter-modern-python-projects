@@ -44,8 +44,8 @@ def main():
     if "{{ cookiecutter.include_fastapi }}" != "y":
         remove_file(f"{src_base}/api")
     
-    if "{{ cookiecutter.project_type }}" not in ["full", "automation"]:
-        remove_file(f"{src_base}/automation")
+    if "{{ cookiecutter.project_type }}" not in ["full", "scripts"]:
+        remove_file("scripts")
     
     if "{{ cookiecutter.include_data_science }}" != "y":
         remove_file(f"{src_base}/data")

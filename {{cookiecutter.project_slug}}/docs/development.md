@@ -152,8 +152,8 @@ def test_my_function_returns_expected_value():
 │   ├── api/                    # API routes and models
 │   │   └── __init__.py
 {% endif -%}
-{% if cookiecutter.project_type in ['full', 'automation'] -%}
-│   ├── automation/             # Automation scripts
+{% if cookiecutter.project_type in ['full', 'scripts'] -%}
+│   ├── automation/             # Scripts and utilities
 │   │   └── __init__.py
 {% endif -%}
 {% if cookiecutter.include_data_science == 'y' -%}

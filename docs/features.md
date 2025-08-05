@@ -63,7 +63,7 @@ just serve
 
 ## Typer Support
 
-**Enabled for:** `full`, `cli`, `automation` project types
+**Enabled for:** `full`, `cli`, `scripts` project types
 
 ### What Gets Added
 
@@ -183,9 +183,9 @@ class DataProcessor:
 uv pip install -e ".[ds]"
 ```
 
-## Scripts/Automation Support
+## Scripts Support
 
-**Enabled for:** `full`, `automation` project types
+**Enabled for:** `full`, `scripts` project types
 
 ### What Gets Added
 
@@ -193,7 +193,7 @@ uv pip install -e ".[ds]"
 ```
 scripts/
 └── automation/
-    └── __init__.py    # Automation framework and base classes
+    └── __init__.py    # Scripts framework and base classes
 ```
 
 **Additional Dependencies:**
@@ -202,27 +202,27 @@ scripts/
 
 ### Usage Example
 
-The automation framework provides base classes for building automation scripts:
+The scripts framework provides base classes for building utility scripts:
 
 ```python
 from scripts.automation import BaseAutomation, AutomationConfig
 
-# Create a custom automation
-class MyAutomation(BaseAutomation):
+# Create a custom script
+class MyScript(BaseAutomation):
     def execute(self) -> bool:
-        self.logger.info("Running my automation...")
-        # Your automation logic here
+        self.logger.info("Running my script...")
+        # Your script logic here
         return True
 
 # Configure and run
 config = AutomationConfig(
-    name="my_automation",
+    name="my_script",
     description="Does something useful",
     enabled=True
 )
 
-automation = MyAutomation(config)
-success = automation.run()
+script = MyScript(config)
+success = script.run()
 ```
 
 **Built-in Example:**

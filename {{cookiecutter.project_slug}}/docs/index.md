@@ -52,8 +52,8 @@ just serve
 {% if cookiecutter.include_fastapi == 'y' -%}
 │   ├── api/           # API routes and models
 {% endif -%}
-{% if cookiecutter.project_type in ['full', 'automation'] -%}
-│   ├── automation/    # Automation scripts
+{% if cookiecutter.project_type in ['full', 'scripts'] -%}
+│   ├── automation/    # Scripts and utilities
 {% endif -%}
 {% if cookiecutter.include_data_science == 'y' -%}
 │   └── data/          # Data processing utilities

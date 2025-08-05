@@ -5,7 +5,7 @@ A streamlined cookiecutter template for modern Python projects with opinionated 
 ## 🚀 Features
 
 ### 🏗️ Six Project Types
-Choose from **full**, **api**, **cli**, **data_science**, **automation**, or **minimal** - each with tailored dependencies and structure.
+Choose from **full**, **api**, **cli**, **data_science**, **scripts**, or **minimal** - each with tailored dependencies and structure.
 
 ### 🛠️ Modern Development Stack
 - **Python 3.13** - Latest Python version
@@ -40,7 +40,7 @@ cookiecutter https://github.com/yourusername/cookiecutter-modern-python-projects
 You'll be prompted for just the essentials:
 - **Project name** and description  
 - **Author** information
-- **Project type** (full, api, cli, data_science, automation, minimal)
+- **Project type** (full, api, cli, data_science, scripts, minimal)
 
 That's it! No complex configuration choices - sensible defaults are built-in.
 
@@ -58,7 +58,7 @@ your_project/
 │   ├── cli/                    # CLI commands (if project type includes)
 │   ├── api/                    # FastAPI routes (if project type includes)  
 │   └── data/                   # Data science utilities (if project type includes)
-├── scripts/                    # Automation scripts (if project type includes)
+├── scripts/                    # Scripts and utilities (if project type includes)
 │   └── automation/
 ├── tests/                      # Test files
 ├── docs/                       # MkDocs documentation
@@ -77,7 +77,7 @@ your_project/
 | `api` | ✅ | ❌ | ❌ | ❌ |
 | `cli` | ❌ | ✅ | ❌ | ❌ |
 | `data_science` | ❌ | ❌ | ✅ | ❌ |
-| `automation` | ❌ | ✅ | ❌ | ✅ |
+| `scripts` | ❌ | ✅ | ❌ | ✅ |
 | `minimal` | ❌ | ❌ | ❌ | ❌ |
 
 See the **[Project Types Guide](docs/project_types.md)** for detailed explanations.

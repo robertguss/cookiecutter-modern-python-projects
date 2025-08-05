@@ -1,4 +1,4 @@
-{% if cookiecutter.project_type in ['full', 'automation'] -%}
+{% if cookiecutter.project_type in ['full', 'scripts'] -%}
 import logging
 from pathlib import Path
 from typing import Any, Dict

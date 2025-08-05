@@ -10,11 +10,11 @@
     "api",
     "cli",
     "data_science",
-    "automation",
+    "scripts",
     "minimal"
   ],
   "include_fastapi": "{% if cookiecutter.project_type in ['full', 'api'] %}y{% else %}n{% endif %}",
-  "include_typer": "{% if cookiecutter.project_type in ['full', 'cli', 'automation'] %}y{% else %}n{% endif %}",
+  "include_typer": "{% if cookiecutter.project_type in ['full', 'cli', 'scripts'] %}y{% else %}n{% endif %}",
   "include_data_science": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}"
 
 }

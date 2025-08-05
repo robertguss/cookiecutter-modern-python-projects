@@ -4,25 +4,25 @@ This cookiecutter template offers 6 different project types, each tailored for s
 
 ## Project Type Matrix
 
-| Project Type | FastAPI | Typer | Data Science | Scripts/Automation |
-|--------------|:-------:|:-----:|:------------:|:------------------:|
-| `full`       |    ✅    |   ✅   |      ✅       |         ✅          |
-| `api`        |    ✅    |   ❌   |      ❌       |         ❌          |
-| `cli`        |    ❌    |   ✅   |      ❌       |         ❌          |
-| `data_science`|   ❌    |   ❌   |      ✅       |         ❌          |
-| `automation` |    ❌    |   ✅   |      ❌       |         ✅          |
-| `minimal`    |    ❌    |   ❌   |      ❌       |         ❌          |
+| Project Type | FastAPI | Typer | Data Science | Scripts |
+|--------------|:-------:|:-----:|:------------:|:-------:|
+| `full`       |    ✅    |   ✅   |      ✅       |    ✅    |
+| `api`        |    ✅    |   ❌   |      ❌       |    ❌    |
+| `cli`        |    ❌    |   ✅   |      ❌       |    ❌    |
+| `data_science`|   ❌    |   ❌   |      ✅       |    ❌    |
+| `scripts`    |    ❌    |   ✅   |      ❌       |    ✅    |
+| `minimal`    |    ❌    |   ❌   |      ❌       |    ❌    |
 
 ## Project Type Details
 
 ### Full (`full`)
-**Best for:** Complete applications that need web APIs, CLI tools, data processing, and automation scripts.
+**Best for:** Complete applications that need web APIs, CLI tools, data processing, and custom scripts.
 
 **What you get:**
 - FastAPI web framework for REST APIs
 - Typer for command-line interfaces
 - Data science tools (pandas, matplotlib, etc.)
-- Scripts/automation framework
+- Scripts framework for experimentation
 - All optional dependency groups: `[api]`, `[cli]`, `[ds]`
 
 **Directory structure:**
@@ -33,7 +33,7 @@ src/your_project/
 ├── data/         # Data processing modules
 └── __init__.py
 scripts/
-└── automation/   # Automation scripts and utilities
+└── automation/   # Scripts and utilities
 ```
 
 ### API (`api`)
@@ -82,13 +82,13 @@ src/your_project/
 └── __init__.py
 ```
 
-### Automation (`automation`)
-**Best for:** Automation scripts, scheduled tasks, workflow tools.
+### Scripts (`scripts`)
+**Best for:** Python experimentation, utility scripts, prototyping.
 
 **What you get:**
 - Typer for CLI interfaces
 - Rich for terminal output
-- Scripts/automation framework with base classes
+- Scripts framework for experimentation
 - Console script entry point: `your-project-name`
 - Optional dependency groups: `[cli]`
 
@@ -98,7 +98,7 @@ src/your_project/
 ├── cli/          # Typer CLI commands
 └── __init__.py
 scripts/
-└── automation/   # Automation framework and scripts
+└── automation/   # Scripts and utilities framework
 ```
 
 ### Minimal (`minimal`)
@@ -132,7 +132,7 @@ Regardless of project type, every generated project includes:
 
 ## Console Scripts
 
-Projects with CLI support (full, cli, automation) automatically get a console script entry point:
+Projects with CLI support (full, cli, scripts) automatically get a console script entry point:
 
 ```bash
 # If your project is named "my-awesome-project"
