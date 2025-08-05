@@ -14,9 +14,7 @@
   {% if cookiecutter.include_data_science == 'y' -%}
 - 📊 **Data Science** - Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
   {% endif -%}
-  {% if cookiecutter.include_jupyter == 'y' -%}
-- 📓 **Jupyter** - Interactive notebooks for data exploration
-  {% endif -%}
+
 - 🧪 **Testing** - Pytest with 80%+ coverage requirement
 - 🔧 **Code Quality** - Ruff for linting and formatting
 - 📦 **Dependency Management** - UV for fast package management

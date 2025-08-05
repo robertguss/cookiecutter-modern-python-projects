@@ -35,7 +35,7 @@ If you prefer to set up manually:
 uv venv .venv --python=3.13
 
 # Install dependencies
-uv pip install -e ".[dev{% if cookiecutter.include_fastapi == 'y' %},api{% endif %}{% if cookiecutter.include_typer == 'y' %},cli{% endif %}{% if cookiecutter.include_data_science == 'y' %},ds{% endif %}{% if cookiecutter.include_jupyter == 'y' %},jupyter{% endif %}]"
+uv pip install -e ".[dev{% if cookiecutter.include_fastapi == 'y' %},api{% endif %}{% if cookiecutter.include_typer == 'y' %},cli{% endif %}{% if cookiecutter.include_data_science == 'y' %},ds{% endif %}]"
 
 # Set up pre-commit hooks
 uv run pre-commit install
@@ -197,7 +197,6 @@ Add to appropriate optional dependency groups in `pyproject.toml`:
 - `api`: FastAPI and related packages
 - `cli`: Typer and CLI-related packages
 - `ds`: Data science packages
-- `jupyter`: Jupyter notebook packages
 
 ## Contributing
 

@@ -9,7 +9,7 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 - **Full Stack**: Everything included (API + CLI + Data Science)
 - **API**: FastAPI-based web APIs
 - **CLI**: Command-line tools with Typer
-- **Data Science**: Pandas, NumPy, Matplotlib, Jupyter
+- **Data Science**: Pandas, NumPy, Matplotlib, Seaborn
 - **Automation**: Scripts and automation tools
 - **Minimal**: Basic Python package
 
@@ -32,7 +32,6 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 ### 🎯 Smart Configuration
 
 - **Conditional dependencies** based on project type
-- **Optional features** (Jupyter)
 - **Flexible project structure** (src layout or flat)
 
 
@@ -125,8 +124,7 @@ Command-line applications:
 
 Data analysis and ML projects:
 
-- Pandas, NumPy, Matplotlib
-- Jupyter notebook support
+- Pandas, NumPy, Matplotlib, Seaborn
 - Data processing utilities
 - Visualization tools
 
@@ -186,7 +184,7 @@ just docs-serve
 - **API**: `fastapi`, `uvicorn`
 - **CLI**: `typer`, `rich`
 - **Data Science**: `pandas`, `matplotlib`, `seaborn`, `scikit-learn`
-- **Jupyter**: `jupyter`, `ipykernel`
+
 
 ### Development Dependencies
 
