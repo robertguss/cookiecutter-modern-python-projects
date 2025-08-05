@@ -1,0 +1,32 @@
+{% if cookiecutter.include_typer == 'y' -%}
+import pytest
+from typer.testing import CliRunner
+from {{ cookiecutter.project_slug }}.cli import app
+
+runner = CliRunner()
+
+
+def test_cli_hello_default():
+    result = runner.invoke(app, ["hello"])
+    assert result.exit_code == 0
+    assert "Hello World!" in result.stdout
+
+
+def test_cli_hello_with_name():
+    result = runner.invoke(app, ["hello", "--name", "Alice"])
+    assert result.exit_code == 0
+    assert "Hello Alice!" in result.stdout
+
+
+def test_cli_version():
+    result = runner.invoke(app, ["version"])
+    assert result.exit_code == 0
+    assert "{{ cookiecutter.project_name }}" in result.stdout
+    assert "v" in result.stdout
+
+
+def test_cli_help():
+    result = runner.invoke(app, ["--help"])
+    assert result.exit_code == 0
+    assert "{{ cookiecutter.project_name }} CLI" in result.stdout
+{% endif %}
