@@ -200,17 +200,3 @@ just docs-build
 {% if cookiecutter.include_pre_commit == 'y' -%}
 Pre-commit hooks will automatically run code quality checks.
 {% endif %}
-
-## License
-
-{% if cookiecutter.license == "MIT" -%}
-This project is licensed under the MIT License - see the LICENSE file for details.
-{% elif cookiecutter.license == "Apache-2.0" -%}
-This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
-{% elif cookiecutter.license == "BSD-3-Clause" -%}
-This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.
-{% elif cookiecutter.license == "GPL-3.0" -%}
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
-{% else -%}
-This project is not licensed for public use.
-{% endif %}

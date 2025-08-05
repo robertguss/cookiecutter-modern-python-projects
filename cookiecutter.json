@@ -4,7 +4,7 @@
   "project_description": "A modern Python project",
   "author_name": "Robert Guss",
   "author_email": "robertguss@gmail.com",
-  "license": ["None", "MIT"],
+
   "project_type": [
     "full",
     "api",

@@ -34,7 +34,7 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 - **Conditional dependencies** based on project type
 - **Optional features** (Jupyter)
 - **Flexible project structure** (src layout or flat)
-- **Multiple license options**
+
 
 ## 📋 Quick Start
 
@@ -64,7 +64,7 @@ The template will prompt you for:
 
 - **Project name** and description
 - **Author** information
-- **License** (MIT, Apache-2.0, BSD-3-Clause, GPL-3.0, None)
+
 - **Python version** (3.11, 3.12, 3.13)
 - **Project type** (full, api, cli, data_science, automation, minimal)
 - **Optional features** (pre-commit, MkDocs, etc.)
@@ -89,7 +89,7 @@ your_project/
 ├── .pre-commit-config.yaml     # Pre-commit hooks (if enabled)
 ├── .gitignore
 ├── .editorconfig
-├── LICENSE                     # License file (if chosen)
+
 └── README.md
 ```
 
@@ -222,7 +222,7 @@ Modify `hooks/post_gen_project.py` to add custom post-generation logic.
 
 ## 📄 License
 
-This template is licensed under the MIT License. Generated projects can use any license you choose during generation.
+This template is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 

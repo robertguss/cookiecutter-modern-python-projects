@@ -5,24 +5,13 @@ description = "{{ cookiecutter.project_description }}"
 authors = [
     {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}
 ]
-{% if cookiecutter.license != "None" -%}
-license = {text = "{{ cookiecutter.license }}"}
-{% endif -%}
+
 requires-python = ">=3.13"
 readme = "README.md"
 keywords = []
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    {% if cookiecutter.license == "MIT" -%}
-    "License :: OSI Approved :: MIT License",
-    {% elif cookiecutter.license == "Apache-2.0" -%}
-    "License :: OSI Approved :: Apache Software License",
-    {% elif cookiecutter.license == "BSD-3-Clause" -%}
-    "License :: OSI Approved :: BSD License",
-    {% elif cookiecutter.license == "GPL-3.0" -%}
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    {% endif -%}
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.13",
 ]
