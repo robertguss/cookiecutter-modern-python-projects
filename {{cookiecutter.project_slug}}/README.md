@@ -25,9 +25,6 @@
 {% endif -%}
 {% if cookiecutter.include_mkdocs == 'y' -%}
 - 📚 **Documentation** - MkDocs with Material theme
-{% endif -%}
-{% if cookiecutter.include_vscode_settings == 'y' -%}
-- 🎨 **VS Code** - Pre-configured settings and extensions
 {% endif %}
 
 ## Quick Start

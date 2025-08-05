@@ -36,9 +36,6 @@ def main():
     """Post-generation project setup."""
     
     # Remove files based on configuration
-    if "{{ cookiecutter.include_vscode_settings }}" != "y":
-        remove_file(".vscode")
-    
     if "{{ cookiecutter.include_pre_commit }}" != "y":
         remove_file(".pre-commit-config.yaml")
     
