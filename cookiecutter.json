@@ -1,28 +1,27 @@
 {
-    "project_name": "My Awesome Project",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-    "project_description": "A modern Python project",
-    "author_name": "Robert Guss",
-    "author_email": "robertguss@gmail.com",
-    "license": ["None", "MIT"],
-    "python_version": ["3.13", "3.12", "3.11"],
-    "project_type": [
-        "full",
-        "api", 
-        "cli",
-        "data_science",
-        "automation",
-        "minimal"
-    ],
-    "include_fastapi": "{% if cookiecutter.project_type in ['full', 'api'] %}y{% else %}n{% endif %}",
-    "include_typer": "{% if cookiecutter.project_type in ['full', 'cli', 'automation'] %}y{% else %}n{% endif %}",
-    "include_data_science": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
-    "include_jupyter": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
-
-    "include_pre_commit": ["y", "n"],
-    "include_mkdocs": ["y", "n"],
-    "test_coverage_threshold": ["80", "85", "90", "95"],
-    "use_src_layout": ["y", "n"],
-    "include_docker": ["n", "y"],
-    "include_github_actions": ["n", "y"]
+  "project_name": "My Awesome Project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_description": "A modern Python project",
+  "author_name": "Robert Guss",
+  "author_email": "robertguss@gmail.com",
+  "license": ["None", "MIT"],
+  "python_version": ["3.13", "3.12", "3.11"],
+  "project_type": [
+    "full",
+    "api",
+    "cli",
+    "data_science",
+    "automation",
+    "minimal"
+  ],
+  "include_fastapi": "{% if cookiecutter.project_type in ['full', 'api'] %}y{% else %}n{% endif %}",
+  "include_typer": "{% if cookiecutter.project_type in ['full', 'cli', 'automation'] %}y{% else %}n{% endif %}",
+  "include_data_science": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
+  "include_jupyter": "{% if cookiecutter.project_type in ['full', 'data_science'] %}y{% else %}n{% endif %}",
+  "include_pre_commit": ["y", "n"],
+  "include_mkdocs": ["y", "n"],
+  "test_coverage_threshold": ["80", "85", "90", "95"],
+  "use_src_layout": ["y", "n"],
+  "include_docker": ["n", "y"],
+  "include_github_actions": ["n", "y"]
 }

@@ -5,27 +5,28 @@
 ## Features
 
 {% if cookiecutter.include_fastapi == 'y' -%}
+
 - 🚀 **FastAPI** - Modern, fast web framework for building APIs
-{% endif -%}
-{% if cookiecutter.include_typer == 'y' -%}
+  {% endif -%}
+  {% if cookiecutter.include_typer == 'y' -%}
 - 🖥️ **Typer** - Modern CLI framework with rich output
-{% endif -%}
-{% if cookiecutter.include_data_science == 'y' -%}
+  {% endif -%}
+  {% if cookiecutter.include_data_science == 'y' -%}
 - 📊 **Data Science** - Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-{% endif -%}
-{% if cookiecutter.include_jupyter == 'y' -%}
+  {% endif -%}
+  {% if cookiecutter.include_jupyter == 'y' -%}
 - 📓 **Jupyter** - Interactive notebooks for data exploration
-{% endif -%}
+  {% endif -%}
 - 🧪 **Testing** - Pytest with {{ cookiecutter.test_coverage_threshold }}%+ coverage requirement
 - 🔧 **Code Quality** - Ruff for linting and formatting
 - 📦 **Dependency Management** - UV for fast package management
 - 🏗️ **Task Runner** - Just for common development tasks
-{% if cookiecutter.include_pre_commit == 'y' -%}
+  {% if cookiecutter.include_pre_commit == 'y' -%}
 - 🪝 **Pre-commit Hooks** - Automated code quality checks
-{% endif -%}
-{% if cookiecutter.include_mkdocs == 'y' -%}
+  {% endif -%}
+  {% if cookiecutter.include_mkdocs == 'y' -%}
 - 📚 **Documentation** - MkDocs with Material theme
-{% endif %}
+  {% endif %}
 
 ## Quick Start
 
@@ -47,11 +48,12 @@ just dev-setup
 ```
 
 This will:
+
 - Create a virtual environment
 - Install all dependencies
-{% if cookiecutter.include_pre_commit == 'y' -%}
+  {% if cookiecutter.include_pre_commit == 'y' -%}
 - Set up pre-commit hooks
-{% endif %}
+  {% endif %}
 
 ## Development
 
@@ -120,15 +122,18 @@ just clean
 ## Usage
 
 {% if cookiecutter.include_typer == 'y' -%}
+
 ### Command Line Interface
 
 ```bash
 # Run the CLI
 {{ cookiecutter.project_slug }} --help
 ```
+
 {% endif %}
 
 {% if cookiecutter.include_fastapi == 'y' -%}
+
 ### API Server
 
 ```bash
@@ -138,9 +143,11 @@ just serve
 # API will be available at http://localhost:8000
 # Interactive docs at http://localhost:8000/docs
 ```
+
 {% endif %}
 
 {% if cookiecutter.include_data_science == 'y' -%}
+
 ### Data Science
 
 ```python
@@ -150,6 +157,7 @@ from {{ cookiecutter.project_slug }}.data import load_data, process_data
 data = load_data("path/to/data.csv")
 processed = process_data(data)
 ```
+
 {% endif %}
 
 ## Testing
@@ -166,6 +174,7 @@ uv run pytest tests/test_specific.py
 ```
 
 {% if cookiecutter.include_mkdocs == 'y' -%}
+
 ## Documentation
 
 Documentation is built with MkDocs and the Material theme.
@@ -177,6 +186,7 @@ just docs-serve
 # Build docs
 just docs-build
 ```
+
 {% endif %}
 
 ## Contributing

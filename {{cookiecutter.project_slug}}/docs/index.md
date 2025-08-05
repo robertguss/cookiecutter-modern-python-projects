@@ -1,4 +1,5 @@
 {% if cookiecutter.include_mkdocs == 'y' -%}
+
 # {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_description }}
@@ -8,37 +9,40 @@
 This project provides a modern Python development environment with:
 
 {% if cookiecutter.include_fastapi == 'y' -%}
+
 - **FastAPI** for building high-performance APIs
-{% endif -%}
-{% if cookiecutter.include_typer == 'y' -%}
+  {% endif -%}
+  {% if cookiecutter.include_typer == 'y' -%}
 - **Typer** for creating beautiful command-line interfaces
-{% endif -%}
-{% if cookiecutter.include_data_science == 'y' -%}
+  {% endif -%}
+  {% if cookiecutter.include_data_science == 'y' -%}
 - **Data Science Tools** including Pandas, NumPy, and Matplotlib
-{% endif -%}
+  {% endif -%}
 - **Modern Development Tools** with Ruff, Pytest, and UV
 - **Quality Assurance** with {{ cookiecutter.test_coverage_threshold }}%+ test coverage
-{% if cookiecutter.include_pre_commit == 'y' -%}
+  {% if cookiecutter.include_pre_commit == 'y' -%}
 - **Pre-commit Hooks** for automated code quality checks
-{% endif %}
+  {% endif %}
 
 ## Quick Start
 
 1. **Install dependencies:**
-   ```bash
-   just dev-setup
-   ```
+
+    ```bash
+    just dev-setup
+    ```
 
 2. **Run tests:**
-   ```bash
-   just test
-   ```
+    ```bash
+    just test
+    ```
 
-{% if cookiecutter.include_fastapi == 'y' -%}
-3. **Start the API server:**
-   ```bash
-   just serve
-   ```
+{% if cookiecutter.include_fastapi == 'y' -%} 3. **Start the API server:**
+
+```bash
+just serve
+```
+
 {% endif %}
 
 ## Project Structure
@@ -73,18 +77,21 @@ See the [Development Guide](development.md) for detailed information about:
 - Code style and standards
 
 {% if cookiecutter.include_fastapi == 'y' -%}
+
 ## API Documentation
 
 For API usage and endpoints, see the [API Documentation](api.md).
 {% endif %}
 
 {% if cookiecutter.include_typer == 'y' -%}
+
 ## CLI Documentation
 
 For command-line usage, see the [CLI Documentation](cli.md).
 {% endif %}
 
 {% if cookiecutter.include_data_science == 'y' -%}
+
 ## Data Science
 
 For data processing and analysis tools, see the [Data Science Documentation](data.md).

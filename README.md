@@ -5,6 +5,7 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 ## 🚀 Features
 
 ### 🏗️ Project Types
+
 - **Full Stack**: Everything included (API + CLI + Data Science)
 - **API**: FastAPI-based web APIs
 - **CLI**: Command-line tools with Typer
@@ -13,6 +14,7 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 - **Minimal**: Basic Python package
 
 ### 🛠️ Modern Development Tools
+
 - **[uv](https://docs.astral.sh/uv/)** - Ultra-fast Python package manager
 - **[Ruff](https://docs.astral.sh/ruff/)** - Lightning-fast linting and formatting
 - **[pytest](https://pytest.org/)** - Comprehensive testing framework
@@ -21,12 +23,14 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 - **[pre-commit](https://pre-commit.com/)** - Git hooks for quality assurance
 
 ### 📚 Documentation & Quality
+
 - **[MkDocs](https://www.mkdocs.org/)** with Material theme
 - **Test coverage** requirements (configurable 80-95%)
 - **Type hints** with mypy support
 - **EditorConfig** for consistent coding styles
 
 ### 🎯 Smart Configuration
+
 - **Conditional dependencies** based on project type
 - **Optional features** (Docker, GitHub Actions, Jupyter)
 - **Flexible project structure** (src layout or flat)
@@ -35,6 +39,7 @@ A comprehensive cookiecutter template for modern Python projects with best pract
 ## 📋 Quick Start
 
 ### Prerequisites
+
 - Python 3.11+
 - [cookiecutter](https://cookiecutter.readthedocs.io/)
 - [uv](https://docs.astral.sh/uv/) (recommended)
@@ -91,40 +96,52 @@ your_project/
 ## 🎯 Project Types Explained
 
 ### Full Stack (`full`)
+
 Perfect for comprehensive projects that need everything:
+
 - FastAPI for APIs
 - Typer for CLI
 - Data science tools
 - Complete documentation setup
 
 ### API (`api`)
+
 Focused on building web APIs:
+
 - FastAPI with uvicorn
 - API documentation
 - Health check endpoints
 - Minimal dependencies
 
 ### CLI (`cli`)
+
 Command-line applications:
+
 - Typer for beautiful CLIs
 - Rich for enhanced output
 - Argument parsing and validation
 
 ### Data Science (`data_science`)
+
 Data analysis and ML projects:
+
 - Pandas, NumPy, Matplotlib
 - Jupyter notebook support
 - Data processing utilities
 - Visualization tools
 
 ### Automation (`automation`)
+
 Scripts and automation tools:
+
 - File processing utilities
 - Configuration management
 - Logging and error handling
 
 ### Minimal (`minimal`)
+
 Basic Python package:
+
 - Core dependencies only
 - Simple structure
 - Easy to extend
@@ -158,18 +175,21 @@ just docs-serve
 ## 📦 Dependencies
 
 ### Core Dependencies (Always Included)
+
 - `pydantic` - Data validation
 - `requests` - HTTP client
 - `python-dotenv` - Environment variables
 - `tqdm` - Progress bars
 
 ### Conditional Dependencies
+
 - **API**: `fastapi`, `uvicorn`
 - **CLI**: `typer`, `rich`
 - **Data Science**: `pandas`, `matplotlib`, `seaborn`, `scikit-learn`
 - **Jupyter**: `jupyter`, `ipykernel`
 
 ### Development Dependencies
+
 - `pytest`, `pytest-cov` - Testing
 - `ruff` - Linting and formatting
 - `deptry` - Dependency analysis
@@ -179,14 +199,17 @@ just docs-serve
 ## 🔧 Customization
 
 ### Adding New Project Types
+
 1. Update `cookiecutter.json` with new project type
 2. Add conditional logic in templates
 3. Update documentation
 
 ### Modifying Dependencies
+
 Edit the `pyproject.toml` template to add/remove dependencies for different project types.
 
 ### Custom Hooks
+
 Modify `hooks/post_gen_project.py` to add custom post-generation logic.
 
 ## 🤝 Contributing
@@ -204,6 +227,7 @@ This template is licensed under the MIT License. Generated projects can use any 
 ## 🙏 Acknowledgments
 
 This template incorporates best practices from:
+
 - [Python Packaging Authority](https://packaging.python.org/)
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Typer](https://typer.tiangolo.com/)
