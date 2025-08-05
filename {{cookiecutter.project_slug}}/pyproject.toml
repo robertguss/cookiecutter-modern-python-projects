@@ -5,26 +5,15 @@ description = "{{ cookiecutter.project_description }}"
 authors = [
     {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}
 ]
-{% if cookiecutter.license != "None" -%}
-license = {text = "{{ cookiecutter.license }}"}
-{% endif -%}
-requires-python = ">={{ cookiecutter.python_version }}"
+
+requires-python = ">=3.13"
 readme = "README.md"
 keywords = []
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    {% if cookiecutter.license == "MIT" -%}
-    "License :: OSI Approved :: MIT License",
-    {% elif cookiecutter.license == "Apache-2.0" -%}
-    "License :: OSI Approved :: Apache Software License",
-    {% elif cookiecutter.license == "BSD-3-Clause" -%}
-    "License :: OSI Approved :: BSD License",
-    {% elif cookiecutter.license == "GPL-3.0" -%}
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    {% endif -%}
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: {{ cookiecutter.python_version }}",
+    "Programming Language :: Python :: 3.13",
 ]
 
 dependencies = [
@@ -59,26 +48,16 @@ ds = [
     "numpy>=1.24",
 ]
 {% endif -%}
-{% if cookiecutter.include_jupyter == 'y' -%}
-jupyter = [
-    "jupyter>=1.0",
-    "ipykernel>=6.25",
-    "nbformat>=5.9",
-]
-{% endif -%}
+
 dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
     "ruff>=0.4",
     "deptry>=0.12",
-    {% if cookiecutter.include_mkdocs == 'y' -%}
     "mkdocs>=1.5",
     "mkdocs-material>=9.5",
     "mkdocstrings[python]>=0.24",
-    {% endif -%}
-    {% if cookiecutter.include_pre_commit == 'y' -%}
     "pre-commit>=3.6",
-    {% endif -%}
 ]
 
 {% if cookiecutter.include_typer == 'y' -%}
@@ -91,26 +70,16 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-{% if cookiecutter.use_src_layout == 'y' -%}
 where = ["src"]
-{% endif %}
 
 [tool.pytest.ini_options]
-addopts = "-v --cov={{ cookiecutter.project_slug }} --cov-report=term-missing --cov-fail-under={{ cookiecutter.test_coverage_threshold }}"
-{% if cookiecutter.use_src_layout == 'y' -%}
+addopts = "-v --cov={{ cookiecutter.project_slug }} --cov-report=term-missing --cov-fail-under=80"
 testpaths = ["tests"]
 pythonpath = ["src"]
-{% else -%}
-testpaths = ["tests"]
-{% endif %}
 
 [tool.coverage.run]
 branch = true
-{% if cookiecutter.use_src_layout == 'y' -%}
 source = ["src"]
-{% else -%}
-source = ["{{ cookiecutter.project_slug }}"]
-{% endif %}
 
 [tool.coverage.report]
 exclude_lines = [
@@ -127,11 +96,9 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
+target-version = "py313"
 line-length = 100
-{% if cookiecutter.use_src_layout == 'y' -%}
 src = ["src", "tests"]
-{% endif %}
 
 [tool.ruff.lint]
 select = [
@@ -160,9 +127,7 @@ docstring-code-format = true
 "tests/**/*" = ["ARG", "S101"]
 
 [tool.deptry]
-{% if cookiecutter.use_src_layout == 'y' -%}
 root = "src"
-{% endif %}
 exclude = [
     ".venv",
     "tests",
@@ -174,7 +139,7 @@ ignore_transitive = []
 ignore_notebooks = true
 
 [tool.mypy]
-python_version = "{{ cookiecutter.python_version }}"
+python_version = "3.13"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -187,7 +152,5 @@ warn_unused_ignores = true
 warn_no_return = true
 warn_unreachable = true
 strict_equality = true
-{% if cookiecutter.use_src_layout == 'y' -%}
 mypy_path = "src"
 packages = ["{{ cookiecutter.project_slug }}"]
-{% endif %}

@@ -35,24 +35,8 @@ def run_command(command, check=True):
 def main():
     """Post-generation project setup."""
     
-    # Remove files based on configuration
-    if "{{ cookiecutter.include_pre_commit }}" != "y":
-        remove_file(".pre-commit-config.yaml")
-    
-    if "{{ cookiecutter.include_mkdocs }}" != "y":
-        remove_file("mkdocs.yml")
-        remove_file("docs")
-    
-    if "{{ cookiecutter.include_docker }}" != "y":
-        remove_file("Dockerfile")
-        remove_file("docker-compose.yml")
-        remove_file(".dockerignore")
-    
-    if "{{ cookiecutter.include_github_actions }}" != "y":
-        remove_file(".github")
-    
     # Remove conditional source directories
-    src_base = "{% if cookiecutter.use_src_layout == 'y' %}src/{% endif %}{{ cookiecutter.project_slug }}"
+    src_base = "src/{{ cookiecutter.project_slug }}"
     
     if "{{ cookiecutter.include_typer }}" != "y":
         remove_file(f"{src_base}/cli")
@@ -60,8 +44,8 @@ def main():
     if "{{ cookiecutter.include_fastapi }}" != "y":
         remove_file(f"{src_base}/api")
     
-    if "{{ cookiecutter.project_type }}" not in ["full", "automation"]:
-        remove_file(f"{src_base}/automation")
+    if "{{ cookiecutter.project_type }}" not in ["full", "scripts"]:
+        remove_file("scripts")
     
     if "{{ cookiecutter.include_data_science }}" != "y":
         remove_file(f"{src_base}/data")
@@ -116,8 +100,7 @@ def main():
     if "{{ cookiecutter.include_fastapi }}" == "y":
         print("4. Run: just serve (to start API server)")
     
-    if "{{ cookiecutter.include_mkdocs }}" == "y":
-        print("5. Run: just docs-serve (to view documentation)")
+    print("5. Run: just docs-serve (to view documentation)")
     
     print("\n🚀 Happy coding!")
 

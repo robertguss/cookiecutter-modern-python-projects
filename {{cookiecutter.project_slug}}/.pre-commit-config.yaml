@@ -1,4 +1,3 @@
-{% if cookiecutter.include_pre_commit == 'y' -%}
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
@@ -30,4 +29,3 @@ repos:
         types: [python]
         pass_filenames: false
         always_run: true
-{% endif %}

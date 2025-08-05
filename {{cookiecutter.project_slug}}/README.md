@@ -14,25 +14,19 @@
   {% if cookiecutter.include_data_science == 'y' -%}
 - 📊 **Data Science** - Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
   {% endif -%}
-  {% if cookiecutter.include_jupyter == 'y' -%}
-- 📓 **Jupyter** - Interactive notebooks for data exploration
-  {% endif -%}
-- 🧪 **Testing** - Pytest with {{ cookiecutter.test_coverage_threshold }}%+ coverage requirement
+
+- 🧪 **Testing** - Pytest with 80%+ coverage requirement
 - 🔧 **Code Quality** - Ruff for linting and formatting
 - 📦 **Dependency Management** - UV for fast package management
 - 🏗️ **Task Runner** - Just for common development tasks
-  {% if cookiecutter.include_pre_commit == 'y' -%}
 - 🪝 **Pre-commit Hooks** - Automated code quality checks
-  {% endif -%}
-  {% if cookiecutter.include_mkdocs == 'y' -%}
 - 📚 **Documentation** - MkDocs with Material theme
-  {% endif %}
 
 ## Quick Start
 
 ### Prerequisites
 
-- Python {{ cookiecutter.python_version }}+
+- Python 3.13+
 - [uv](https://docs.astral.sh/uv/) package manager
 - [just](https://github.com/casey/just) task runner
 
@@ -51,9 +45,7 @@ This will:
 
 - Create a virtual environment
 - Install all dependencies
-  {% if cookiecutter.include_pre_commit == 'y' -%}
 - Set up pre-commit hooks
-  {% endif %}
 
 ## Development
 
@@ -81,10 +73,8 @@ just check
 just serve
 {% endif -%}
 
-{% if cookiecutter.include_mkdocs == 'y' -%}
 # Serve documentation
 just docs-serve
-{% endif %}
 
 # Clean up generated files
 just clean
@@ -94,28 +84,24 @@ just clean
 
 ```
 {{ cookiecutter.project_slug }}/
-├── {% if cookiecutter.use_src_layout == 'y' %}src/{{ cookiecutter.project_slug }}/{% else %}{{ cookiecutter.project_slug }}/{% endif %}    # Main package
+├── src/{{ cookiecutter.project_slug }}/    # Main package
 {% if cookiecutter.include_typer == 'y' -%}
 │   ├── cli/                    # Command-line interface
 {% endif -%}
 {% if cookiecutter.include_fastapi == 'y' -%}
 │   ├── api/                    # API routes and models
 {% endif -%}
-{% if cookiecutter.project_type in ['full', 'automation'] -%}
-│   ├── automation/             # Automation scripts
+{% if cookiecutter.project_type in ['full', 'scripts'] -%}
+│   ├── automation/             # Scripts and utilities
 {% endif -%}
 {% if cookiecutter.include_data_science == 'y' -%}
 │   └── data/                   # Data processing utilities
 {% endif -%}
 ├── tests/                      # Test files
-{% if cookiecutter.include_mkdocs == 'y' -%}
 ├── docs/                       # Documentation
-{% endif -%}
 ├── pyproject.toml              # Project configuration
 ├── justfile                    # Task definitions
-{% if cookiecutter.include_pre_commit == 'y' -%}
 ├── .pre-commit-config.yaml     # Pre-commit hooks
-{% endif -%}
 └── README.md                   # This file
 ```
 
@@ -173,8 +159,6 @@ just test-cov
 uv run pytest tests/test_specific.py
 ```
 
-{% if cookiecutter.include_mkdocs == 'y' -%}
-
 ## Documentation
 
 Documentation is built with MkDocs and the Material theme.
@@ -187,8 +171,6 @@ just docs-serve
 just docs-build
 ```
 
-{% endif %}
-
 ## Contributing
 
 1. Fork the repository
@@ -197,20 +179,4 @@ just docs-build
 4. Run tests and ensure they pass
 5. Submit a pull request
 
-{% if cookiecutter.include_pre_commit == 'y' -%}
 Pre-commit hooks will automatically run code quality checks.
-{% endif %}
-
-## License
-
-{% if cookiecutter.license == "MIT" -%}
-This project is licensed under the MIT License - see the LICENSE file for details.
-{% elif cookiecutter.license == "Apache-2.0" -%}
-This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
-{% elif cookiecutter.license == "BSD-3-Clause" -%}
-This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.
-{% elif cookiecutter.license == "GPL-3.0" -%}
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
-{% else -%}
-This project is not licensed for public use.
-{% endif %}

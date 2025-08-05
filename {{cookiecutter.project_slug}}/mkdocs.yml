@@ -1,4 +1,3 @@
-{% if cookiecutter.include_mkdocs == 'y' -%}
 site_name: {{ cookiecutter.project_name }}
 site_description: {{ cookiecutter.project_description }}
 site_author: {{ cookiecutter.author_name }}
@@ -66,4 +65,3 @@ markdown_extensions:
       alternate_style: true
   - attr_list
   - md_in_html
-{% endif %}
