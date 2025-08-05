@@ -1,148 +1,86 @@
 # Modern Python Project Cookiecutter Template
 
-A comprehensive cookiecutter template for modern Python projects with best practices, quality tools, and flexible configuration options.
+A streamlined cookiecutter template for modern Python projects with opinionated defaults and best practices built-in.
 
 ## 🚀 Features
 
-### 🏗️ Project Types
+### 🏗️ Six Project Types
+Choose from **full**, **api**, **cli**, **data_science**, **automation**, or **minimal** - each with tailored dependencies and structure.
 
-- **Full Stack**: Everything included (API + CLI + Data Science)
-- **API**: FastAPI-based web APIs
-- **CLI**: Command-line tools with Typer
-- **Data Science**: Pandas, NumPy, Matplotlib, Seaborn
-- **Automation**: Scripts and automation tools
-- **Minimal**: Basic Python package
-
-### 🛠️ Modern Development Tools
-
-- **[uv](https://docs.astral.sh/uv/)** - Ultra-fast Python package manager
-- **[Ruff](https://docs.astral.sh/ruff/)** - Lightning-fast linting and formatting
-- **[pytest](https://pytest.org/)** - Comprehensive testing framework
+### 🛠️ Modern Development Stack
+- **Python 3.13** - Latest Python version
+- **[uv](https://docs.astral.sh/uv/)** - Ultra-fast package management
+- **[Ruff](https://docs.astral.sh/ruff/)** - Lightning-fast linting and formatting  
+- **[pytest](https://pytest.org/)** - Testing with 80% coverage requirement
 - **[just](https://github.com/casey/just)** - Modern task runner
-- **[deptry](https://github.com/fpgmaas/deptry)** - Dependency analysis
-- **[pre-commit](https://pre-commit.com/)** - Git hooks for quality assurance
+- **[pre-commit](https://pre-commit.com/)** - Quality assurance hooks
 
-### 📚 Documentation & Quality
-
+### 📚 Documentation Ready
 - **[MkDocs](https://www.mkdocs.org/)** with Material theme
-- **Test coverage** requirements (configurable 80-95%)
+- **src/ layout** for clean package structure
 - **Type hints** with mypy support
-- **EditorConfig** for consistent coding styles
-
-### 🎯 Smart Configuration
-
-- **Conditional dependencies** based on project type
-- **Flexible project structure** (src layout or flat)
 
 
 ## 📋 Quick Start
 
 ### Prerequisites
-
-- Python 3.11+
+- Python 3.13+
 - [cookiecutter](https://cookiecutter.readthedocs.io/)
-- [uv](https://docs.astral.sh/uv/) (recommended)
-- [just](https://github.com/casey/just) (recommended)
 
-### Installation
-
+### Generate a Project
 ```bash
-# Install cookiecutter if you haven't already
+# Install cookiecutter
 pip install cookiecutter
 
-# Generate a new project
-cookiecutter https://github.com/yourusername/python-project-cookiecutter
-
-# Or use this local template
-cookiecutter /path/to/this/template
+# Generate your project
+cookiecutter https://github.com/yourusername/cookiecutter-modern-python-projects
 ```
 
-### Configuration Options
-
-The template will prompt you for:
-
-- **Project name** and description
+### Simple Configuration
+You'll be prompted for just the essentials:
+- **Project name** and description  
 - **Author** information
-
-- **Python version** (3.11, 3.12, 3.13)
 - **Project type** (full, api, cli, data_science, automation, minimal)
-- **Optional features** (pre-commit, MkDocs, etc.)
-- **Test coverage threshold** (80%, 85%, 90%, 95%)
+
+That's it! No complex configuration choices - sensible defaults are built-in.
+
+## 📖 Documentation
+
+- **[Project Types Guide](docs/project_types.md)** - Detailed breakdown of each project type
+- **[Features Guide](docs/features.md)** - What each feature adds to your project
 
 ## 🏗️ Generated Project Structure
 
 ```
 your_project/
-├── src/your_project/           # Source code (if src layout chosen)
+├── src/your_project/           # Source code (src layout)
 │   ├── __init__.py
-│   ├── cli/                    # CLI commands (if enabled)
-│   ├── api/                    # FastAPI routes (if enabled)
-│   ├── automation/             # Automation scripts (if enabled)
-│   └── data/                   # Data science utilities (if enabled)
+│   ├── cli/                    # CLI commands (if project type includes)
+│   ├── api/                    # FastAPI routes (if project type includes)  
+│   └── data/                   # Data science utilities (if project type includes)
+├── scripts/                    # Automation scripts (if project type includes)
+│   └── automation/
 ├── tests/                      # Test files
-│   ├── conftest.py
-│   └── test_*.py
-├── docs/                       # Documentation (if enabled)
+├── docs/                       # MkDocs documentation
 ├── pyproject.toml              # Project configuration
 ├── justfile                    # Task definitions
-├── .pre-commit-config.yaml     # Pre-commit hooks (if enabled)
+├── .pre-commit-config.yaml     # Pre-commit hooks
 ├── .gitignore
-├── .editorconfig
-
 └── README.md
 ```
 
-## 🎯 Project Types Explained
+## 🎯 Project Types Overview
 
-### Full Stack (`full`)
+| Type | FastAPI | Typer CLI | Data Science | Scripts |
+|------|:-------:|:---------:|:------------:|:-------:|
+| `full` | ✅ | ✅ | ✅ | ✅ |
+| `api` | ✅ | ❌ | ❌ | ❌ |
+| `cli` | ❌ | ✅ | ❌ | ❌ |
+| `data_science` | ❌ | ❌ | ✅ | ❌ |
+| `automation` | ❌ | ✅ | ❌ | ✅ |
+| `minimal` | ❌ | ❌ | ❌ | ❌ |
 
-Perfect for comprehensive projects that need everything:
-
-- FastAPI for APIs
-- Typer for CLI
-- Data science tools
-- Complete documentation setup
-
-### API (`api`)
-
-Focused on building web APIs:
-
-- FastAPI with uvicorn
-- API documentation
-- Health check endpoints
-- Minimal dependencies
-
-### CLI (`cli`)
-
-Command-line applications:
-
-- Typer for beautiful CLIs
-- Rich for enhanced output
-- Argument parsing and validation
-
-### Data Science (`data_science`)
-
-Data analysis and ML projects:
-
-- Pandas, NumPy, Matplotlib, Seaborn
-- Data processing utilities
-- Visualization tools
-
-### Automation (`automation`)
-
-Scripts and automation tools:
-
-- File processing utilities
-- Configuration management
-- Logging and error handling
-
-### Minimal (`minimal`)
-
-Basic Python package:
-
-- Core dependencies only
-- Simple structure
-- Easy to extend
+See the **[Project Types Guide](docs/project_types.md)** for detailed explanations.
 
 ## 🛠️ Development Workflow
 
@@ -151,64 +89,44 @@ After generating your project:
 ```bash
 cd your_project
 
-# Set up development environment
-just dev-setup
+# Install dependencies
+just install
 
 # Run tests
 just test
 
-# Check code quality
+# Check code quality  
 just check
 
 # Format code
 just format
 
-# Start development (if API project)
+# Start API server (if API project)
 just serve
 
-# Serve documentation (if enabled)
-just docs-serve
+# Serve documentation
+just docs
 ```
 
-## 📦 Dependencies
+## 🔧 What's Always Included
 
-### Core Dependencies (Always Included)
+Every generated project includes:
+- **Python 3.13** support
+- **Pre-commit hooks** (ruff, mypy, pytest)
+- **MkDocs documentation** with Material theme
+- **80% test coverage** requirement
+- **src/ layout** for clean imports
+- **uv** for fast dependency management
+- **justfile** for task automation
 
-- `pydantic` - Data validation
-- `requests` - HTTP client
-- `python-dotenv` - Environment variables
-- `tqdm` - Progress bars
+## 🎨 Customization
 
-### Conditional Dependencies
+This template is designed with opinionated defaults, but you can:
+- Modify `cookiecutter.json` to add new project types
+- Edit template files in `{{cookiecutter.project_slug}}/`
+- Update `hooks/post_gen_project.py` for custom logic
 
-- **API**: `fastapi`, `uvicorn`
-- **CLI**: `typer`, `rich`
-- **Data Science**: `pandas`, `matplotlib`, `seaborn`, `scikit-learn`
-
-
-### Development Dependencies
-
-- `pytest`, `pytest-cov` - Testing
-- `ruff` - Linting and formatting
-- `deptry` - Dependency analysis
-- `mkdocs`, `mkdocs-material` - Documentation (if enabled)
-- `pre-commit` - Git hooks (if enabled)
-
-## 🔧 Customization
-
-### Adding New Project Types
-
-1. Update `cookiecutter.json` with new project type
-2. Add conditional logic in templates
-3. Update documentation
-
-### Modifying Dependencies
-
-Edit the `pyproject.toml` template to add/remove dependencies for different project types.
-
-### Custom Hooks
-
-Modify `hooks/post_gen_project.py` to add custom post-generation logic.
+See the **[Features Guide](docs/features.md)** for implementation details.
 
 ## 🤝 Contributing
 
