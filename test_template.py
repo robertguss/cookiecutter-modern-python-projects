@@ -13,25 +13,7 @@ def test_cookiecutter_template():
     
     test_configs = [
         {
-            "project_name": "Test API Project",
-            "project_type": "api",
-            "include_fastapi": "y",
-            "include_typer": "n",
-            "include_data_science": "n",
-        },
-        {
-            "project_name": "Test CLI Project", 
-            "project_type": "cli",
-            "include_fastapi": "n",
-            "include_typer": "y",
-            "include_data_science": "n",
-        },
-        {
-            "project_name": "Test Full Project",
-            "project_type": "full",
-            "include_fastapi": "y",
-            "include_typer": "y", 
-            "include_data_science": "y",
+            "project_name": "Test Scripts Project",
         }
     ]
     
@@ -74,20 +56,18 @@ def test_cookiecutter_template():
                         else:
                             print(f"  ❌ {file} missing")
                     
-                    # Check conditional files
-                    if config.get("include_fastapi") == "y":
-                        api_file = project_path / "src" / project_slug / "api" / "__init__.py"
-                        if api_file.exists():
-                            print("  ✅ API module exists")
-                        else:
-                            print("  ❌ API module missing")
+                    # Check scripts-specific files
+                    cli_file = project_path / "src" / project_slug / "cli" / "__init__.py"
+                    if cli_file.exists():
+                        print("  ✅ CLI module exists")
+                    else:
+                        print("  ❌ CLI module missing")
                     
-                    if config.get("include_typer") == "y":
-                        cli_file = project_path / "src" / project_slug / "cli" / "__init__.py"
-                        if cli_file.exists():
-                            print("  ✅ CLI module exists")
-                        else:
-                            print("  ❌ CLI module missing")
+                    scripts_dir = project_path / "scripts"
+                    if scripts_dir.exists():
+                        print("  ✅ Scripts directory exists")
+                    else:
+                        print("  ❌ Scripts directory missing")
                 
                 else:
                     print(f"❌ Project not generated")

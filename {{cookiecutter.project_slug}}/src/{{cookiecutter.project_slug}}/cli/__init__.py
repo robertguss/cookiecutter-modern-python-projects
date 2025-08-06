@@ -1,4 +1,3 @@
-{% if cookiecutter.include_typer == 'y' -%}
 import typer
 from rich.console import Console
 
@@ -23,4 +22,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-{% endif %}

@@ -35,7 +35,7 @@ If you prefer to set up manually:
 uv venv .venv --python=3.13
 
 # Install dependencies
-uv pip install -e ".[dev{% if cookiecutter.include_fastapi == 'y' %},api{% endif %}{% if cookiecutter.include_typer == 'y' %},cli{% endif %}{% if cookiecutter.include_data_science == 'y' %},ds{% endif %}]"
+uv pip install -e ".[dev]"
 
 # Set up pre-commit hooks
 uv run pre-commit install
@@ -57,11 +57,6 @@ just check         # Run all quality checks
 # Testing
 just test          # Run tests
 just test-cov      # Run tests with coverage report
-
-{% if cookiecutter.include_fastapi == 'y' -%}
-# Development server
-just serve         # Start FastAPI development server
-{% endif %}
 
 # Documentation
 just docs-serve    # Serve documentation locally
@@ -144,29 +139,21 @@ def test_my_function_returns_expected_value():
 {{ cookiecutter.project_slug }}/
 ├── src/{{ cookiecutter.project_slug }}/    # Main package
 │   ├── __init__.py             # Package initialization
-{% if cookiecutter.include_typer == 'y' -%}
 │   ├── cli/                    # Command-line interface
 │   │   └── __init__.py
-{% endif -%}
-{% if cookiecutter.include_fastapi == 'y' -%}
-│   ├── api/                    # API routes and models
-│   │   └── __init__.py
-{% endif -%}
-{% if cookiecutter.project_type in ['full', 'scripts'] -%}
-│   ├── automation/             # Scripts and utilities
-│   │   └── __init__.py
-{% endif -%}
-{% if cookiecutter.include_data_science == 'y' -%}
-│   └── data/                   # Data processing utilities
+│   └── cli.py                  # CLI module
+├── scripts/                    # Automation and utility scripts
+│   └── automation/             # Script framework
 │       └── __init__.py
-{% endif -%}
 ├── tests/                      # Test files
 │   ├── __init__.py
 │   ├── conftest.py             # Pytest configuration and fixtures
-│   └── test_*.py               # Test modules
+│   ├── test_main.py            # Main tests
+│   └── test_cli.py             # CLI tests
 ├── docs/                       # Documentation
 │   ├── index.md
-│   └── *.md
+│   ├── cli.md
+│   └── development.md
 ├── pyproject.toml              # Project configuration
 ├── justfile                    # Task definitions
 ├── .pre-commit-config.yaml     # Pre-commit hooks
@@ -191,12 +178,6 @@ uv pip install -e .
 # Edit pyproject.toml manually and run:
 uv pip install -e ".[dev]"
 ```
-
-### Optional Dependencies
-Add to appropriate optional dependency groups in `pyproject.toml`:
-- `api`: FastAPI and related packages
-- `cli`: Typer and CLI-related packages
-- `ds`: Data science packages
 
 ## Contributing
 

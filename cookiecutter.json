@@ -1,15 +1,7 @@
 {
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "project_description": "{{ 'A modern Python project' }}",
-  "author_name": "{{ 'Robert Guss' }}",
-  "author_email": "{{ 'robertguss@gmail.com' }}",
-  "project_type": [
-    "full",
-    "api",
-    "cli",
-    "data_science",
-    "scripts",
-    "minimal"
-  ]
+  "project_description": "A collection of useful Python scripts",
+  "author_name": "Robert Guss",
+  "author_email": "robertguss@gmail.com"
 }

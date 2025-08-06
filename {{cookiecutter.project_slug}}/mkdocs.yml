@@ -41,15 +41,7 @@ plugins:
 
 nav:
   - Home: index.md
-  {% if cookiecutter.include_fastapi == 'y' -%}
-  - API: api.md
-  {% endif -%}
-  {% if cookiecutter.include_typer == 'y' -%}
   - CLI: cli.md
-  {% endif -%}
-  {% if cookiecutter.include_data_science == 'y' -%}
-  - Data Science: data.md
-  {% endif -%}
   - Development: development.md
   - API Reference: reference.md
 

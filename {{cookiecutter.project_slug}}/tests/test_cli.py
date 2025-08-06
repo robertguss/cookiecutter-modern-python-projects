@@ -1,4 +1,3 @@
-{% if cookiecutter.include_typer == 'y' -%}
 import pytest
 from typer.testing import CliRunner
 from {{ cookiecutter.project_slug }}.cli import app
@@ -29,4 +28,3 @@ def test_cli_help():
     result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
     assert "{{ cookiecutter.project_name }} CLI" in result.stdout
-{% endif %}

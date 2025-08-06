@@ -1,62 +1,18 @@
 set shell := ["bash", "-ceu"]
 
 venv := ".venv"
-python_version := "{{ cookiecutter.python_version }}"
+python_version := "3.13"
 
 default:
     @just --list
 
-install:
-    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
-    uv pip install -e ".[dev{% if cookiecutter.include_fastapi == 'y' %},api{% endif %}{% if cookiecutter.include_typer == 'y' %},cli{% endif %}{% if cookiecutter.include_data_science == 'y' %},ds{% endif %}{% if cookiecutter.include_jupyter == 'y' %},jupyter{% endif %}]"
-
-install-prod:
-    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
-    uv pip install -e .
-
-lint:
-    uv run ruff check --fix .
-
-format:
-    uv run ruff format .
+build:
+    uv build
 
 check:
     uv run ruff check .
     uv run ruff format --check .
-    {% if cookiecutter.include_pre_commit == 'y' -%}
     uv run deptry .
-    {% endif -%}
-
-test:
-    uv run pytest
-
-test-cov:
-    uv run pytest --cov-report=html
-    @echo "Coverage report generated in htmlcov/index.html"
-
-{% if cookiecutter.include_mkdocs == 'y' -%}
-docs-serve:
-    uv run mkdocs serve
-
-docs-build:
-    uv run mkdocs build
-
-docs-deploy:
-    uv run mkdocs gh-deploy
-{% endif %}
-
-{% if cookiecutter.include_fastapi == 'y' -%}
-serve:
-    uv run uvicorn {{ cookiecutter.project_slug }}.api:app --reload
-{% endif %}
-
-{% if cookiecutter.include_pre_commit == 'y' -%}
-pre-commit-install:
-    uv run pre-commit install
-
-pre-commit-run:
-    uv run pre-commit run --all-files
-{% endif %}
 
 clean:
     rm -rf .venv
@@ -70,19 +26,48 @@ clean:
     find . -type d -name __pycache__ -delete
     find . -type f -name "*.pyc" -delete
 
-build:
-    uv build
+dev-setup:
+    just install
+    just pre-commit-install
+    @echo "🎉 Development environment setup complete!"
+    @echo "Run 'just test' to run tests"
+    @echo "Run 'just docs-serve' to serve documentation"
+
+docs-build:
+    uv run mkdocs build
+
+docs-deploy:
+    uv run mkdocs gh-deploy
+
+docs-serve:
+    uv run mkdocs serve
+
+format:
+    uv run ruff format .
+
+install:
+    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
+    uv pip install -e ".[dev]"
+
+install-prod:
+    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
+    uv pip install -e .
+
+lint:
+    uv run ruff check --fix .
+
+pre-commit-install:
+    uv run pre-commit install
+
+pre-commit-run:
+    uv run pre-commit run --all-files
 
 publish:
     uv publish
 
-dev-setup: install{% if cookiecutter.include_pre_commit == 'y' %} pre-commit-install{% endif %}
+test:
+    uv run pytest
 
-    @echo "🎉 Development environment setup complete!"
-    @echo "Run 'just test' to run tests"
-    {% if cookiecutter.include_fastapi == 'y' -%}
-    @echo "Run 'just serve' to start the API server"
-    {% endif -%}
-    {% if cookiecutter.include_mkdocs == 'y' -%}
-    @echo "Run 'just docs-serve' to serve documentation"
-    {% endif %}
+test-cov:
+    uv run pytest --cov-report=html
+    @echo "Coverage report generated in htmlcov/index.html"
