@@ -1,11 +1,14 @@
-# Modern Python Project Cookiecutter Template
+# Python Scripts Cookiecutter Template
 
-A streamlined cookiecutter template for modern Python projects with opinionated defaults and best practices built-in.
+A streamlined cookiecutter template for Python scripts projects with opinionated defaults and best practices built-in.
 
 ## 🚀 Features
 
-### 🏗️ Six Project Types
-Choose from **full**, **api**, **cli**, **data_science**, **scripts**, or **minimal** - each with tailored dependencies and structure.
+### 🏗️ Scripts-Focused Project Structure
+Optimized for Python experimentation, utility scripts, and prototyping with:
+- **[Typer](https://typer.tiangolo.com/)** - CLI framework with rich terminal output
+- **Scripts framework** - Organized automation and utility scripts
+- **Clean src/ layout** - Professional package structure
 
 ### 🛠️ Modern Development Stack
 - **Python 3.13** - Latest Python version

@@ -4,17 +4,8 @@
 
 ## Features
 
-{% if cookiecutter.include_fastapi == 'y' -%}
-
-- 🚀 **FastAPI** - Modern, fast web framework for building APIs
-  {% endif -%}
-  {% if cookiecutter.include_typer == 'y' -%}
 - 🖥️ **Typer** - Modern CLI framework with rich output
-  {% endif -%}
-  {% if cookiecutter.include_data_science == 'y' -%}
-- 📊 **Data Science** - Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-  {% endif -%}
-
+- 📁 **Scripts Framework** - Organized automation and utility scripts
 - 🧪 **Testing** - Pytest with 80%+ coverage requirement
 - 🔧 **Code Quality** - Ruff for linting and formatting
 - 📦 **Dependency Management** - UV for fast package management (always installs latest versions, with reproducible builds via uv.lock)
@@ -71,11 +62,6 @@ just format
 # Check code quality
 just check
 
-{% if cookiecutter.include_fastapi == 'y' -%}
-# Start development server
-just serve
-{% endif -%}
-
 # Serve documentation
 just docs-serve
 
@@ -88,18 +74,10 @@ just clean
 ```
 {{ cookiecutter.project_slug }}/
 ├── src/{{ cookiecutter.project_slug }}/    # Main package
-{% if cookiecutter.include_typer == 'y' -%}
 │   ├── cli/                    # Command-line interface
-{% endif -%}
-{% if cookiecutter.include_fastapi == 'y' -%}
-│   ├── api/                    # API routes and models
-{% endif -%}
-{% if cookiecutter.project_type in ['full', 'scripts'] -%}
-│   ├── automation/             # Scripts and utilities
-{% endif -%}
-{% if cookiecutter.include_data_science == 'y' -%}
-│   └── data/                   # Data processing utilities
-{% endif -%}
+│   └── __init__.py
+├── scripts/                    # Automation and utility scripts
+│   └── automation/             # Script framework
 ├── tests/                      # Test files
 ├── docs/                       # Documentation
 ├── pyproject.toml              # Project configuration
@@ -110,44 +88,34 @@ just clean
 
 ## Usage
 
-{% if cookiecutter.include_typer == 'y' -%}
-
 ### Command Line Interface
 
 ```bash
 # Run the CLI
-{{ cookiecutter.project_slug }} --help
+python -m {{ cookiecutter.project_slug }}.cli --help
+
+# Example commands
+python -m {{ cookiecutter.project_slug }}.cli hello
+python -m {{ cookiecutter.project_slug }}.cli hello --name "Developer"
+python -m {{ cookiecutter.project_slug }}.cli version
 ```
 
-{% endif %}
+### Scripts Framework
 
-{% if cookiecutter.include_fastapi == 'y' -%}
-
-### API Server
-
-```bash
-# Start the development server
-just serve
-
-# API will be available at http://localhost:8000
-# Interactive docs at http://localhost:8000/docs
-```
-
-{% endif %}
-
-{% if cookiecutter.include_data_science == 'y' -%}
-
-### Data Science
+The `scripts/` directory contains organized automation and utility scripts:
 
 ```python
-from {{ cookiecutter.project_slug }}.data import load_data, process_data
+from scripts.automation import BaseAutomation, AutomationConfig
 
-# Your data science code here
-data = load_data("path/to/data.csv")
-processed = process_data(data)
+# Create custom automation
+config = AutomationConfig(
+    name="my_script",
+    description="My custom script",
+    enabled=True
+)
+
+# Your automation logic here
 ```
-
-{% endif %}
 
 ## Testing
 

@@ -1,4 +1,3 @@
-{% if cookiecutter.project_type in ['full', 'scripts'] -%}
 import logging
 from pathlib import Path
 from typing import Any, Dict
@@ -66,4 +65,3 @@ class FileProcessorAutomation(BaseAutomation):
         content = input_path.read_text()
         processed_content = content.upper()  # Example processing
         output_path.write_text(processed_content)
-{% endif %}

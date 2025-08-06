@@ -4,18 +4,10 @@
 
 ## Overview
 
-This project provides a modern Python development environment with:
+This project provides a modern Python scripts development environment with:
 
-{% if cookiecutter.include_fastapi == 'y' -%}
-
-- **FastAPI** for building high-performance APIs
-  {% endif -%}
-  {% if cookiecutter.include_typer == 'y' -%}
 - **Typer** for creating beautiful command-line interfaces
-  {% endif -%}
-  {% if cookiecutter.include_data_science == 'y' -%}
-- **Data Science Tools** including Pandas, NumPy, and Matplotlib
-  {% endif -%}
+- **Scripts Framework** for organized automation and utility scripts
 - **Modern Development Tools** with Ruff, Pytest, and UV
 - **Quality Assurance** with 80%+ test coverage
 - **Pre-commit Hooks** for automated code quality checks
@@ -33,35 +25,50 @@ This project provides a modern Python development environment with:
     just test
     ```
 
-{% if cookiecutter.include_fastapi == 'y' -%} 3. **Start the API server:**
+3. **Try the CLI:**
+    ```bash
+    python -m {{ cookiecutter.project_slug }}.cli hello
+    python -m {{ cookiecutter.project_slug }}.cli hello --name "Developer"
+    ```
 
-```bash
-just serve
-```
-
-{% endif %}
+4. **Serve documentation:**
+    ```bash
+    just docs-serve
+    ```
 
 ## Project Structure
 
 ```
 {{ cookiecutter.project_slug }}/
-├── src/{{ cookiecutter.project_slug }}/
-{% if cookiecutter.include_typer == 'y' -%}
-│   ├── cli/           # Command-line interface
-{% endif -%}
-{% if cookiecutter.include_fastapi == 'y' -%}
-│   ├── api/           # API routes and models
-{% endif -%}
-{% if cookiecutter.project_type in ['full', 'scripts'] -%}
-│   ├── automation/    # Scripts and utilities
-{% endif -%}
-{% if cookiecutter.include_data_science == 'y' -%}
-│   └── data/          # Data processing utilities
-{% endif -%}
-├── tests/             # Test files
-├── docs/              # Documentation
-└── pyproject.toml     # Project configuration
+├── src/{{ cookiecutter.project_slug }}/    # Main package
+│   ├── cli/                    # Command-line interface
+│   └── __init__.py
+├── scripts/                    # Automation and utility scripts
+│   └── automation/             # Script framework
+├── tests/                      # Test files
+├── docs/                       # Documentation
+├── pyproject.toml              # Project configuration
+├── justfile                    # Task definitions
+└── README.md
 ```
+
+## Features
+
+### Command Line Interface
+
+Built with [Typer](https://typer.tiangolo.com/) for rich, interactive command-line experiences.
+
+### Scripts Framework
+
+Organized structure for automation scripts with base classes and configuration management.
+
+### Development Tools
+
+- **UV** - Ultra-fast package management
+- **Ruff** - Lightning-fast linting and formatting
+- **Pytest** - Comprehensive testing with coverage
+- **Just** - Modern task runner
+- **Pre-commit** - Automated quality checks
 
 ## Development
 
@@ -72,23 +79,12 @@ See the [Development Guide](development.md) for detailed information about:
 - Contributing guidelines
 - Code style and standards
 
-{% if cookiecutter.include_fastapi == 'y' -%}
-
-## API Documentation
-
-For API usage and endpoints, see the [API Documentation](api.md).
-{% endif %}
-
-{% if cookiecutter.include_typer == 'y' -%}
-
 ## CLI Documentation
 
 For command-line usage, see the [CLI Documentation](cli.md).
-{% endif %}
 
-{% if cookiecutter.include_data_science == 'y' -%}
+## Next Steps
 
-## Data Science
-
-For data processing and analysis tools, see the [Data Science Documentation](data.md).
-{% endif %}
+- Check out the [CLI Reference](cli.md) for available commands
+- Read the [Development Guide](development.md) for contribution guidelines
+- Explore the [API Reference](reference.md) for code documentation

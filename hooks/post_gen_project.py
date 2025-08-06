@@ -35,31 +35,6 @@ def run_command(command, check=True):
 def main():
     """Post-generation project setup."""
     
-    # Remove conditional source directories
-    src_base = "src/{{ cookiecutter.project_slug }}"
-    
-    if "{{ cookiecutter.include_typer }}" != "y":
-        remove_file(f"{src_base}/cli")
-    
-    if "{{ cookiecutter.include_fastapi }}" != "y":
-        remove_file(f"{src_base}/api")
-    
-    if "{{ cookiecutter.project_type }}" not in ["full", "scripts"]:
-        remove_file("scripts")
-    
-    if "{{ cookiecutter.include_data_science }}" != "y":
-        remove_file(f"{src_base}/data")
-    
-    # Remove conditional test files
-    if "{{ cookiecutter.include_typer }}" != "y":
-        remove_file("tests/test_cli.py")
-    
-    if "{{ cookiecutter.include_fastapi }}" != "y":
-        remove_file("tests/test_api.py")
-    
-    if "{{ cookiecutter.include_data_science }}" != "y":
-        remove_file("tests/test_data.py")
-    
     # Initialize git repository
     print("🔧 Initializing git repository...")
     if run_command("git init"):
@@ -96,11 +71,7 @@ def main():
         print("2. Run: just dev-setup (if not already done)")
     
     print("3. Run: just test")
-    
-    if "{{ cookiecutter.include_fastapi }}" == "y":
-        print("4. Run: just serve (to start API server)")
-    
-    print("5. Run: just docs-serve (to view documentation)")
+    print("4. Run: just docs-serve (to view documentation)")
     
     print("\n🚀 Happy coding!")
 

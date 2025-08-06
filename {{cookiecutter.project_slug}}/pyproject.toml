@@ -21,34 +21,11 @@ dependencies = [
     "requests",
     "python-dotenv",
     "tqdm",
-    {% if cookiecutter.project_type in ['full', 'data_science'] or cookiecutter.include_data_science == 'y' -%}
-    "pandas",
-    {% endif -%}
-]
-
-[project.optional-dependencies]
-{% if cookiecutter.include_fastapi == 'y' -%}
-api = [
-    "fastapi",
-    "uvicorn[standard]",
-]
-{% endif -%}
-{% if cookiecutter.include_typer == 'y' -%}
-cli = [
     "typer",
     "rich",
 ]
-{% endif -%}
-{% if cookiecutter.include_data_science == 'y' -%}
-ds = [
-    "matplotlib",
-    "seaborn",
-    "polars",
-    "scikit-learn",
-    "numpy",
-]
-{% endif -%}
 
+[project.optional-dependencies]
 dev = [
     "pytest",
     "pytest-cov",
@@ -60,10 +37,7 @@ dev = [
     "pre-commit",
 ]
 
-{% if cookiecutter.include_typer == 'y' -%}
-[project.scripts]
-{{ cookiecutter.project_slug }} = "{{ cookiecutter.project_slug }}.cli:main"
-{% endif %}
+
 
 [build-system]
 requires = ["setuptools", "wheel"]
