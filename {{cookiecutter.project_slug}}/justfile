@@ -27,7 +27,8 @@ clean:
     find . -type f -name "*.pyc" -delete
 
 dev-setup:
-        install pre-commit-install
+    just install
+    just pre-commit-install
     @echo "🎉 Development environment setup complete!"
     @echo "Run 'just test' to run tests"
     @echo "Run 'just docs-serve' to serve documentation"
