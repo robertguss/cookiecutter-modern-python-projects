@@ -6,48 +6,13 @@ python_version := "3.13"
 default:
     @just --list
 
-install:
-    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
-    uv pip install -e ".[dev]"
-
-install-prod:
-    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
-    uv pip install -e .
-
-lint:
-    uv run ruff check --fix .
-
-format:
-    uv run ruff format .
+build:
+    uv build
 
 check:
     uv run ruff check .
     uv run ruff format --check .
     uv run deptry .
-
-test:
-    uv run pytest
-
-test-cov:
-    uv run pytest --cov-report=html
-    @echo "Coverage report generated in htmlcov/index.html"
-
-docs-serve:
-    uv run mkdocs serve
-
-docs-build:
-    uv run mkdocs build
-
-docs-deploy:
-    uv run mkdocs gh-deploy
-
-
-
-pre-commit-install:
-    uv run pre-commit install
-
-pre-commit-run:
-    uv run pre-commit run --all-files
 
 clean:
     rm -rf .venv
@@ -61,14 +26,47 @@ clean:
     find . -type d -name __pycache__ -delete
     find . -type f -name "*.pyc" -delete
 
-build:
-    uv build
+dev-setup:
+        install pre-commit-install
+    @echo "🎉 Development environment setup complete!"
+    @echo "Run 'just test' to run tests"
+    @echo "Run 'just docs-serve' to serve documentation"
+
+docs-build:
+    uv run mkdocs build
+
+docs-deploy:
+    uv run mkdocs gh-deploy
+
+docs-serve:
+    uv run mkdocs serve
+
+format:
+    uv run ruff format .
+
+install:
+    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
+    uv pip install -e ".[dev]"
+
+install-prod:
+    uv venv {{ "{{" }}venv{{ "}}" }} --python={{ "{{" }}python_version{{ "}}" }}
+    uv pip install -e .
+
+lint:
+    uv run ruff check --fix .
+
+pre-commit-install:
+    uv run pre-commit install
+
+pre-commit-run:
+    uv run pre-commit run --all-files
 
 publish:
     uv publish
 
-dev-setup: install pre-commit-install
+test:
+    uv run pytest
 
-    @echo "🎉 Development environment setup complete!"
-    @echo "Run 'just test' to run tests"
-    @echo "Run 'just docs-serve' to serve documentation"
+test-cov:
+    uv run pytest --cov-report=html
+    @echo "Coverage report generated in htmlcov/index.html"
