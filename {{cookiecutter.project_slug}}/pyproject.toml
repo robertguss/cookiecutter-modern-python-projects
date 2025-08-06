@@ -21,8 +21,7 @@ dependencies = [
     "requests",
     "python-dotenv",
     "tqdm",
-    "typer",
-    "rich",
+    "pandas",
 ]
 
 [project.optional-dependencies]
