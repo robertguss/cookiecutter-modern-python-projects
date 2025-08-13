@@ -3,7 +3,7 @@ name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = "{{ cookiecutter.project_description }}"
 authors = [
-    {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}
+    { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" },
 ]
 
 requires-python = ">=3.13"
@@ -22,6 +22,7 @@ dependencies = [
     "python-dotenv",
     "tqdm",
     "pandas",
+    "sqlfluff",
 ]
 
 [project.optional-dependencies]
@@ -35,7 +36,6 @@ dev = [
     "mkdocstrings[python]",
     "pre-commit",
 ]
-
 
 
 [build-system]
@@ -86,7 +86,7 @@ select = [
     "UP",  # pyupgrade
 ]
 ignore = [
-    "E501",  # line too long, handled by formatter
+    "E501", # line too long, handled by formatter
 ]
 
 [tool.ruff.format]
@@ -101,11 +101,7 @@ docstring-code-format = true
 
 [tool.deptry]
 root = "src"
-exclude = [
-    ".venv",
-    "tests",
-    "docs",
-]
+exclude = [".venv", "tests", "docs"]
 ignore_obsolete = []
 ignore_missing = []
 ignore_transitive = []
